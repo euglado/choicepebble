@@ -1,0 +1,28 @@
+{
+  "name": "choicepebble",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Small community decisions through accessible Discord poll buttons",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "build": "tsc",
+    "start": "node --env-file-if-exists=.env dist/src/main.js",
+    "register": "node --env-file-if-exists=.env dist/src/register.js",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "lint": "biome check .",
+    "check": "npm run lint && npm test && node scripts/check-supply.mjs"
+  },
+  "dependencies": {
+    "discord.js": "14.27.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}
